@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+}
+
+.calculator {
+    position: absolute;
+    margin: auto;
+    border: 5px solid black;
+    height: 600px;
+    width: 452px;
+}
+
+#result {
+    position: relative;
+    margin: auto;
+}
+
+.buttons-rows {
+    position: relative;
+    margin: auto;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+button {
+    height: 100px;
+    width: 113px;
+    font-size: 24px;
+}
+
+.clear, .large-number {
+    width: 226px !important;
+}
+
