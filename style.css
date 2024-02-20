@@ -2,14 +2,19 @@
     margin: 0;
 }
 
+/* Calculator Main  */
 .calculator {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: auto;
     border: 5px solid black;
     height: 605px;
     width: 452px;
 }
 
+/* Result Box */
 #result {
     background-color: #a7a498;
     position: relative;
@@ -17,7 +22,9 @@
     width: 444px;
     height: 100px;
 }
+/* END Result Box*/
 
+/* Buttons */
 .buttons-rows {
     position: relative;
     margin: auto;
@@ -32,7 +39,7 @@
     background-color: #ca8333;
 }
 
-.number {
+.number, .decimal {
     background-color: #c0bfb9;
 }
 
@@ -44,6 +51,7 @@ button {
     height: 100px;
     width: 113px;
     font-size: 48px;
+    font-family: "Orbitron", sans-serif;
     box-shadow: none;
     transition: box-shadow 0.1s ease-in-out;
 }
@@ -56,4 +64,10 @@ button:active {
 .clear, .large-number {
     width: 226px !important;
 }
+
+.material-icons {
+    margin-top: 10px;
+}
+/* END Buttons */
+
 
