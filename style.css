@@ -6,13 +6,15 @@
     position: absolute;
     margin: auto;
     border: 5px solid black;
-    height: 600px;
+    height: 605px;
     width: 452px;
 }
 
 #result {
     position: relative;
     margin: auto;
+    width: 444px;
+    height: 100px;
 }
 
 .buttons-rows {
@@ -20,7 +22,7 @@
     margin: auto;
 }
 
-.buttons {
+.btn-row-one, .btn-row-two, .btn-row-three, .btn-row-four, .btn-row-five {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
