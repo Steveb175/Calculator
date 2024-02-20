@@ -67,8 +67,11 @@ button:active, .pressed {
 }
 
 .material-icons {
-    margin-top: 11px;
     font-size: 60px;
+}
+
+.material-icons:active {
+    font-size: 50px;
 }
 /* END Buttons */
 
