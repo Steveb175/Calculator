@@ -10,6 +10,7 @@
     transform: translate(-50%, -50%);
     margin: auto;
     border: 5px solid black;
+    border-radius: 5px;
     height: 605px;
     width: 452px;
 }
