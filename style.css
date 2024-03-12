@@ -4,6 +4,7 @@
 
 /* Calculator Main  */
 .calculator {
+    display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -18,22 +19,17 @@
 /* Result Box */
 #result {
     background-color: #a7a498;
-    position: relative;
-    margin: auto;
-    width: 444px;
-    height: 100px;
+    grid-column-start: span 4;
 }
 /* END Result Box*/
 
 /* Buttons */
-.buttons-rows {
+.container {
     position: relative;
-    margin: auto;
-}
-
-.btn-row-one, .btn-row-two, .btn-row-three, .btn-row-four, .btn-row-five {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .operator {
@@ -46,11 +42,12 @@
 
 .clear, .backspace {
     background-color: #cfcecc;
+    grid-column-start: span 1;
 }
 
+
+
 button {
-    height: 100px;
-    width: 113px;
     font-size: 48px;
     font-family: "Orbitron", sans-serif;
     box-shadow: none;
@@ -64,7 +61,7 @@ button:active, .pressed {
 }
 
 .clear, .large-number {
-    width: 226px !important;
+    grid-column-start: span 2;
 }
 
 .material-icons {
