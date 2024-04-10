@@ -68,7 +68,9 @@ button:active, .pressed {
     font-size: 60px;
 }
 
-.material-icons:active {
+.material-icons:active .pressed-delete{
+    transition: box-shadow 0.1s ease-in-out;
+    box-shadow: inset 10px 10px 20px 5px rgba(0,0,0,0.1),inset -10px -10px 20px 5px rgba(0,0,0,0.1);
     font-size: 50px;
 }
 /* END Buttons */
