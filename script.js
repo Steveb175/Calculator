@@ -7,7 +7,7 @@ document.addEventListener("keydown", function (event) {
   buttons.forEach((button) => {
     if (
       button.textContent === key ||
-      (key === "c" && button.classList.contains("clear"))
+      (key === "c" && button.classList.contains("clear") || (key === "*" && button.classList.contains("multiplication")))
     ) {
       button.classList.add("pressed");
     }
@@ -26,7 +26,7 @@ document.addEventListener("keyup", function (event) {
   buttons.forEach((button) => {
     if (
       button.textContent === key ||
-      (key === "c" && button.classList.contains("clear"))
+      (key === "c" && button.classList.contains("clear") || (key === "*" && button.classList.contains("multiplication")))
     ){
       keydownNumber(event);
       button.classList.remove("pressed");
@@ -39,13 +39,31 @@ document.addEventListener("keyup", function (event) {
   });
 });
 
+/* Click Event */
+document.querySelectorAll(".calculator button").forEach(function(button) {
+  button.addEventListener("click", function() {
+    const key = this.textContent;
+    if (key === "c" && button.classList.contains("clear")) {
+      keydownNumber ({ key: key });
+    } else if (key === "*" && button.classList.contains("multiplication")) {
+      keydownNumber ({ key: key });
+    } else {
+      keydownNumber ({ key: key });
+    }
+  });
+});
+
 
 /* Calculation */
 /* Function inserts if key pressed is a number */
 function keydownNumber(event) {
   let result = document.getElementById("result");
   let pressedKey = event.key;
-  if (!isNaN(pressedKey)) {
+  if (!isNaN(pressedKey) || pressedKey === ".") {
     result.value += pressedKey;
+  } else if (pressedKey === "+" || pressedKey === "-" || pressedKey === "/" || pressedKey === "*") {
+    result.value += " " + pressedKey + " ";
+  } else if (pressedKey === "x") {
+    result.value += " " + "*" + " ";
   }
 }
