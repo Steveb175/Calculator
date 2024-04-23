@@ -72,5 +72,7 @@ function keydownNumber(event) {
     result.value = "";
   } else if (pressedKey === "Backspace") {
     result.value = result.value.slice(0, -1);
+  } else if (pressedKey === "=") {
+    result.value = eval(result.value);
   }
 }
