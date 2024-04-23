@@ -43,8 +43,8 @@ document.addEventListener("keyup", function (event) {
 document.querySelectorAll(".calculator button").forEach(function(button) {
   button.addEventListener("click", function() {
     const key = this.textContent;
-    if (key === "c" && button.classList.contains("clear")) {
-      keydownNumber ({ key: key });
+    if (key === "c" || button.classList.contains("clear")) {
+      keydownNumber ({ key: "c" });
     } else if (key === "*" && button.classList.contains("multiplication")) {
       keydownNumber ({ key: key });
     } else {
@@ -55,7 +55,7 @@ document.querySelectorAll(".calculator button").forEach(function(button) {
 
 
 /* Calculation */
-/* Function inserts if key pressed is a number */
+/* Function inserts key pressed/clicked*/
 function keydownNumber(event) {
   let result = document.getElementById("result");
   let pressedKey = event.key;
@@ -65,5 +65,12 @@ function keydownNumber(event) {
     result.value += " " + pressedKey + " ";
   } else if (pressedKey === "x") {
     result.value += " " + "*" + " ";
+  } else if (pressedKey === "c") {
+    result.value = "";
+  } else if (pressedKey === "Backspace") {
+    result.value = result.value.slice(0, -1);
+    console.log("Value after slice: " + result.value);
+    console.log("test");
+    // this part is still not working
   }
 }
