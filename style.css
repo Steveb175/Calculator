@@ -20,6 +20,8 @@
 #result {
     background-color: #a7a498;
     grid-column-start: span 4;
+    font-size: 48px;
+    font-family: "Orbitron", sans-serif;
 }
 /* END Result Box*/
 
