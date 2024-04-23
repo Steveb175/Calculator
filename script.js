@@ -15,6 +15,7 @@ document.addEventListener("keydown", function (event) {
       key === "Backspace" && button.classList.contains("backspace") 
     ) {
       button.classList.add("pressed-delete");
+      keydownNumber(event);
     }
   });
 });
@@ -45,6 +46,8 @@ document.querySelectorAll(".calculator button").forEach(function(button) {
     const key = this.textContent;
     if (key === "c" || button.classList.contains("clear")) {
       keydownNumber ({ key: "c" });
+    } else if(key === "Backspace" || button.classList.contains("backspace")) {
+      keydownNumber ({ key: "Backspace" });
     } else if (key === "*" && button.classList.contains("multiplication")) {
       keydownNumber ({ key: key });
     } else {
@@ -69,8 +72,5 @@ function keydownNumber(event) {
     result.value = "";
   } else if (pressedKey === "Backspace") {
     result.value = result.value.slice(0, -1);
-    console.log("Value after slice: " + result.value);
-    console.log("test");
-    // this part is still not working
   }
 }
