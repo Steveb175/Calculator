@@ -1,6 +1,10 @@
+/* Events Bool */
+let eventsEnabled = true;
+
 /* Keyboard Button Press */
 /* Keydown */
 document.addEventListener("keydown", function (event) {
+  if (!eventsEnabled) return;
   const key = event.key;
   const buttons = document.querySelectorAll(".calculator button");
 
@@ -22,6 +26,7 @@ document.addEventListener("keydown", function (event) {
 
 /* Keyup */
 document.addEventListener("keyup", function (event) {
+  if (!eventsEnabled) return;
   const key = event.key;
   const buttons = document.querySelectorAll(".calculator button");
   buttons.forEach((button) => {
@@ -43,6 +48,7 @@ document.addEventListener("keyup", function (event) {
 /* Click Event */
 document.querySelectorAll(".calculator button").forEach(function(button) {
   button.addEventListener("click", function() {
+    if (!eventsEnabled) return;
     const key = this.textContent;
     if (key === "c" || button.classList.contains("clear")) {
       keydownNumber ({ key: "c" });
@@ -62,7 +68,18 @@ document.querySelectorAll(".calculator button").forEach(function(button) {
 function keydownNumber(event) {
   let result = document.getElementById("result");
   let pressedKey = event.key;
-  if (!isNaN(pressedKey) || pressedKey === ".") {
+  if (result.value.length >= 8) {
+    disableAll();
+    error();
+    setTimeout(clear, 250);
+    setTimeout(error, 500);
+    setTimeout(clear, 750);
+    setTimeout(error, 1000);
+    setTimeout(clear, 1250);
+    setTimeout(error, 1500);
+    setTimeout(clear, 1750);
+    setTimeout (enableAll, 1751);
+  } else if (!isNaN(pressedKey) || pressedKey === ".") {
     result.value += pressedKey;
   } else if (pressedKey === "+" || pressedKey === "-" || pressedKey === "/" || pressedKey === "*") {
     result.value += " " + pressedKey + " ";
@@ -75,4 +92,26 @@ function keydownNumber(event) {
   } else if (pressedKey === "=") {
     result.value = eval(result.value);
   }
+}
+
+/* Error */
+function error() {
+  let result = document.getElementById("result");
+  result.value = "Error";
+}
+
+/* Clear Value */
+function clear() {
+  let result = document.getElementById("result");
+  result.value = "";
+}
+
+/* Disable */
+function disableAll() {
+eventsEnabled = false;
+}
+
+/* Enable */
+function enableAll() {
+eventsEnabled = true;
 }
